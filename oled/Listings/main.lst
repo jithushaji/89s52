@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   MAIN                                                              05/09/2021 18:33:04 PAGE 1   
+C51 COMPILER V9.60.0.0   MAIN                                                              05/14/2021 11:57:12 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
@@ -18,13 +18,16 @@ line level    source
    8   1        sda_start();
    9   1        sda_write(0x75);
   10   1        sda_write(0xAA);
-  11   1        sda_stop();
-  12   1        //while(1);
-  13   1      }
+  11   1        sda_write(0xBA);
+  12   1        sda_write(0x1A);
+  13   1        sda_write(0xB1);
+  14   1        sda_stop();
+  15   1        //while(1);
+  16   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     23    ----
+   CODE SIZE        =     38    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

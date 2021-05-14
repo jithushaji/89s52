@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    05/09/2021  18:33:06  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    05/14/2021  11:57:14  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
@@ -26,22 +26,22 @@ LINK MAP OF MODULE:  .\Objects\oled8051 (?C_STARTUP)
 
             * * * * * * *   D A T A   M E M O R Y   * * * * * * *
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
-            DATA    0008H     000DH     UNIT         ?DT?I2C
-            IDATA   0015H     0001H     UNIT         ?STACK
+            DATA    0008H     000FH     UNIT         ?DT?I2C
+            IDATA   0017H     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
-            CODE    0003H     0017H     UNIT         ?PR?MAIN?MAIN
-                    001AH     0001H                  *** GAP ***
+            CODE    0003H     000FH     UNIT         ?PR?_SDA_WRITE?I2C
+            CODE    0012H     0007H     UNIT         ?PR?SDA_START?I2C
+                    0019H     0002H                  *** GAP ***
             CODE    001BH     0003H     ABSOLUTE     
-            CODE    001EH     009EH     UNIT         ?PR?INTR_SER?I2C
-            CODE    00BCH     008CH     UNIT         ?C_C51STARTUP
-            CODE    0148H     008BH     UNIT         ?C?LIB_CODE
-            CODE    01D3H     001DH     UNIT         ?PR?_CLOCK_GEN?I2C
-            CODE    01F0H     001CH     UNIT         ?C_INITSEG
-            CODE    020CH     000FH     UNIT         ?PR?_SDA_WRITE?I2C
-            CODE    021BH     0007H     UNIT         ?PR?SDA_START?I2C
-            CODE    0222H     0007H     UNIT         ?PR?SDA_STOP?I2C
+            CODE    001EH     00C5H     UNIT         ?PR?INTR_SER?I2C
+            CODE    00E3H     008CH     UNIT         ?C_C51STARTUP
+            CODE    016FH     008BH     UNIT         ?C?LIB_CODE
+            CODE    01FAH     0026H     UNIT         ?PR?MAIN?MAIN
+            CODE    0220H     0020H     UNIT         ?C_INITSEG
+            CODE    0240H     001DH     UNIT         ?PR?_CLOCK_GEN?I2C
+            CODE    025DH     0007H     UNIT         ?PR?SDA_STOP?I2C
 
 
 
@@ -59,7 +59,7 @@ SEGMENT
   +--> ?PR?_CLOCK_GEN?I2C
   +--> ?PR?SDA_START?I2C
   +--> ?PR?_SDA_WRITE?I2C
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/09/2021  18:33:06  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/14/2021  11:57:14  PAGE 2
 
 
   +--> ?PR?SDA_STOP?I2C
@@ -72,8 +72,8 @@ SYMBOL TABLE OF MODULE:  .\Objects\oled8051 (?C_STARTUP)
   ----------------------------------
 
   -------         MODULE        ?C_STARTUP
-  C:00BCH         SEGMENT       ?C_C51STARTUP
-  I:0015H         SEGMENT       ?STACK
+  C:00E3H         SEGMENT       ?C_C51STARTUP
+  I:0017H         SEGMENT       ?STACK
   C:0000H         PUBLIC        ?C_STARTUP
   D:00E0H         SYMBOL        ACC
   D:00F0H         SYMBOL        B
@@ -82,7 +82,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\oled8051 (?C_STARTUP)
   N:0000H         SYMBOL        IBPSTACK
   N:0100H         SYMBOL        IBPSTACKTOP
   N:0080H         SYMBOL        IDATALEN
-  C:00BFH         SYMBOL        IDATALOOP
+  C:00E6H         SYMBOL        IDATALOOP
   N:0000H         SYMBOL        PBPSTACK
   N:0100H         SYMBOL        PBPSTACKTOP
   N:0000H         SYMBOL        PDATALEN
@@ -91,36 +91,39 @@ SYMBOL TABLE OF MODULE:  .\Objects\oled8051 (?C_STARTUP)
   N:0000H         SYMBOL        PPAGEENABLE
   D:00A0H         SYMBOL        PPAGE_SFR
   D:0081H         SYMBOL        SP
-  C:00BCH         SYMBOL        STARTUP1
+  C:00E3H         SYMBOL        STARTUP1
   N:0000H         SYMBOL        XBPSTACK
   N:0000H         SYMBOL        XBPSTACKTOP
   N:0000H         SYMBOL        XDATALEN
   N:0000H         SYMBOL        XDATASTART
   C:0000H         LINE#         126
-  C:00BCH         LINE#         133
-  C:00BEH         LINE#         134
-  C:00BFH         LINE#         135
-  C:00C0H         LINE#         136
-  C:00C2H         LINE#         185
-  C:00C5H         LINE#         196
+  C:00E3H         LINE#         133
+  C:00E5H         LINE#         134
+  C:00E6H         LINE#         135
+  C:00E7H         LINE#         136
+  C:00E9H         LINE#         185
+  C:00ECH         LINE#         196
   -------         ENDMOD        ?C_STARTUP
 
   -------         MODULE        MAIN
   C:0000H         SYMBOL        _ICE_DUMMY_
-  C:0003H         PUBLIC        main
+  C:01FAH         PUBLIC        main
   -------         PROC          MAIN
-  C:0003H         LINE#         5
-  C:0003H         LINE#         6
-  C:0003H         LINE#         7
-  C:000AH         LINE#         8
-  C:000DH         LINE#         9
-  C:0012H         LINE#         10
-  C:0017H         LINE#         11
+  C:01FAH         LINE#         5
+  C:01FAH         LINE#         6
+  C:01FAH         LINE#         7
+  C:0201H         LINE#         8
+  C:0204H         LINE#         9
+  C:0209H         LINE#         10
+  C:020EH         LINE#         11
+  C:0213H         LINE#         12
+  C:0218H         LINE#         13
+  C:021DH         LINE#         14
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/14/2021  11:57:14  PAGE 3
+
+
   -------         ENDPROC       MAIN
   -------         ENDMOD        MAIN
-
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/09/2021  18:33:06  PAGE 3
-
 
   -------         MODULE        I2C
   C:0000H         SYMBOL        _ICE_DUMMY_
@@ -129,103 +132,109 @@ SYMBOL TABLE OF MODULE:  .\Objects\oled8051 (?C_STARTUP)
   B:00A0H.2       PUBLIC        P2_2
   D:0008H         PUBLIC        sda_
   D:000AH         PUBLIC        sda_begin
-  C:01D3H         PUBLIC        _clock_gen
+  C:0240H         PUBLIC        _clock_gen
   D:0089H         PUBLIC        TMOD
   D:000CH         PUBLIC        sda_data
-  C:020CH         PUBLIC        _sda_write
-  D:000DH         PUBLIC        sda_ack
+  D:000DH         PUBLIC        ack_done
+  C:0003H         PUBLIC        _sda_write
+  D:000FH         PUBLIC        sda_ack
   B:00A8H.3       PUBLIC        ET1
-  C:021BH         PUBLIC        sda_start
+  C:0012H         PUBLIC        sda_start
   D:008DH         PUBLIC        TH1
   D:008BH         PUBLIC        TL1
-  D:000FH         PUBLIC        sda_end
+  D:0011H         PUBLIC        sda_end
   B:0088H.6       PUBLIC        TR1
-  D:0011H         PUBLIC        sda_bit
-  C:0222H         PUBLIC        sda_stop
-  D:0013H         PUBLIC        sda_strt
+  D:0013H         PUBLIC        sda_bit
+  C:025DH         PUBLIC        sda_stop
+  D:0015H         PUBLIC        sda_strt
   C:001EH         PUBLIC        intr_ser
   -------         PROC          _CLOCK_GEN
   D:0006H         SYMBOL        rate
-  C:01D3H         LINE#         13
-  C:01D3H         LINE#         14
-  C:01D3H         LINE#         15
-  C:01D6H         LINE#         16
-  C:01E6H         LINE#         17
-  C:01E9H         LINE#         18
-  C:01EBH         LINE#         19
-  C:01EDH         LINE#         20
-  C:01EFH         LINE#         21
+  C:0240H         LINE#         14
+  C:0240H         LINE#         15
+  C:0240H         LINE#         16
+  C:0243H         LINE#         17
+  C:0253H         LINE#         18
+  C:0256H         LINE#         19
+  C:0258H         LINE#         20
+  C:025AH         LINE#         21
+  C:025CH         LINE#         22
   -------         ENDPROC       _CLOCK_GEN
   -------         PROC          _SDA_WRITE
   D:0007H         SYMBOL        c
-  C:020CH         LINE#         23
-  C:020CH         LINE#         24
-  C:020CH         LINE#         25
-  C:020EH         LINE#         26
-  C:0214H         LINE#         27
-  C:021AH         LINE#         28
+  C:0003H         LINE#         24
+  C:0003H         LINE#         25
+  C:0003H         LINE#         26
+  C:0005H         LINE#         27
+  C:000BH         LINE#         28
+  C:0011H         LINE#         29
   -------         ENDPROC       _SDA_WRITE
   -------         PROC          SDA_START
-  C:021BH         LINE#         30
-  C:021BH         LINE#         31
-  C:021BH         LINE#         32
-  C:0221H         LINE#         33
+  C:0012H         LINE#         31
+  C:0012H         LINE#         32
+  C:0012H         LINE#         33
+  C:0018H         LINE#         34
   -------         ENDPROC       SDA_START
   -------         PROC          SDA_STOP
-  C:0222H         LINE#         35
-  C:0222H         LINE#         36
-  C:0222H         LINE#         37
-  C:0228H         LINE#         38
+  C:025DH         LINE#         36
+  C:025DH         LINE#         37
+  C:025DH         LINE#         38
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/14/2021  11:57:14  PAGE 4
+
+
+  C:0263H         LINE#         39
   -------         ENDPROC       SDA_STOP
   -------         PROC          INTR_SER
-  -------         DO            
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/09/2021  18:33:06  PAGE 4
-
-
-  C:0088H         SYMBOL        here
-  -------         ENDDO         
-  C:001EH         LINE#         40
-  C:0029H         LINE#         43
-  C:003CH         LINE#         44
-  C:003CH         LINE#         45
-  C:0054H         LINE#         46
-  C:0061H         LINE#         47
-  C:0061H         LINE#         48
-  C:0067H         LINE#         49
-  C:006DH         LINE#         51
-  C:0073H         LINE#         52
-  C:0075H         LINE#         53
-  C:0075H         LINE#         54
-  C:0075H         LINE#         56
-  C:0077H         LINE#         58
-  C:0082H         LINE#         59
-  C:0082H         LINE#         60
-  C:0084H         LINE#         61
-  C:0088H         LINE#         62
+  C:001EH         LINE#         41
+  C:0029H         LINE#         44
+  C:0034H         LINE#         45
+  C:0036H         LINE#         47
+  C:0056H         LINE#         48
+  C:0056H         LINE#         49
+  C:006EH         LINE#         50
+  C:0076H         LINE#         51
+  C:0076H         LINE#         53
+  C:007BH         LINE#         57
+  C:007BH         LINE#         58
+  C:007BH         LINE#         59
+  C:0086H         LINE#         60
+  C:0086H         LINE#         61
   C:0088H         LINE#         63
-  C:0088H         LINE#         64
-  C:0093H         LINE#         65
-  C:0093H         LINE#         66
-  C:0095H         LINE#         67
+  C:008DH         LINE#         64
+  C:0091H         LINE#         65
+  C:0091H         LINE#         66
+  C:0099H         LINE#         67
   C:0099H         LINE#         68
-  C:009EH         LINE#         69
-  C:009EH         LINE#         71
-  C:00A9H         LINE#         72
-  C:00A9H         LINE#         73
-  C:00ABH         LINE#         74
-  C:00AFH         LINE#         75
-  C:00B3H         LINE#         76
-  C:00B3H         LINE#         78
+  C:009BH         LINE#         69
+  C:00A3H         LINE#         70
+  C:00A3H         LINE#         71
+  C:00A7H         LINE#         72
+  C:00ABH         LINE#         73
+  C:00AFH         LINE#         74
+  C:00AFH         LINE#         76
+  C:00AFH         LINE#         79
+  C:00BAH         LINE#         80
+  C:00BAH         LINE#         81
+  C:00BCH         LINE#         82
+  C:00C0H         LINE#         83
+  C:00C5H         LINE#         84
+  C:00C5H         LINE#         88
+  C:00D0H         LINE#         89
+  C:00D0H         LINE#         90
+  C:00D2H         LINE#         91
+  C:00D6H         LINE#         92
+  C:00DAH         LINE#         93
+  C:00DAH         LINE#         95
   -------         ENDPROC       INTR_SER
   -------         ENDMOD        I2C
 
   -------         MODULE        ?C?SIDIV
-  C:0148H         PUBLIC        ?C?SIDIV
+  C:016FH         PUBLIC        ?C?SIDIV
   -------         ENDMOD        ?C?SIDIV
 
   -------         MODULE        ?C?UIDIV
-  C:017EH         PUBLIC        ?C?UIDIV
+  C:01A5H         PUBLIC        ?C?UIDIV
   -------         ENDMOD        ?C?UIDIV
 
-Program Size: data=22.0 xdata=0 code=552
+Program Size: data=24.0 xdata=0 code=610
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
