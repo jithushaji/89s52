@@ -55,7 +55,7 @@ void intr_ser(void) interrupt 3
    }
    if((scl == 0) && (sda_begin == 1) && (sda_ == 1) && (sda_bit <= 9))
      {
-      sda = ((sda_data >> sda_bit++) & 0x01);
+      sda = ((sda_data << sda_bit++) & 0x80);
       if(sda_bit == 9)
         {
           sda_ack = 1;

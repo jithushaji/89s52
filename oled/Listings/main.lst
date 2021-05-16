@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   MAIN                                                              05/14/2021 15:49:13 PAGE 1   
+C51 COMPILER V9.60.0.0   MAIN                                                              05/16/2021 16:45:56 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
@@ -10,24 +10,23 @@ line level    source
 
    1          #include <REGX51.H>
    2          #include "i2c.h"
-   3          
+   3          #include "oled.h"
    4          
    5          void main()
    6          {
    7   1        clock_gen(9600);
    8   1        sda_start();
-   9   1        sda_write(0x75);
-  10   1        sda_write(0xAA);
-  11   1        sda_write(0xBA);
-  12   1        sda_write(0x1A);
-  13   1        sda_write(0xB1);
-  14   1        sda_write(0x71);
-  15   1        sda_stop();
-  16   1      }
+   9   1        sda_write(OLED_ADDR);
+  10   1        
+  11   1        send_cmd(OLED_ON);
+  12   1        
+  13   1        //sda_write(0xAF);
+  14   1        sda_stop();
+  15   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     43    ----
+   CODE SIZE        =     23    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

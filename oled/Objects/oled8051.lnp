@@ -1,5 +1,6 @@
 ".\Objects\STARTUP.obj",
 ".\Objects\main.obj",
-".\Objects\i2c.obj" 
+".\Objects\i2c.obj",
+".\Objects\oled.obj" 
 TO ".\Objects\oled8051" 
 PRINT(".\Listings\oled8051.m51") RAMSIZE(256) 
